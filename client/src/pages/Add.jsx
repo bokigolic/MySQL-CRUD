@@ -35,17 +35,17 @@ const Add = () => {
 
   console.log(book)
   return (
-    <div className='from'>
+    <div className='form'>
       <h1>Add new book</h1>
       <input type="text" placeholder="title" onChange={handleChange} name="title" />
       <input type="text" placeholder="desc" onChange={handleChange} name="desc" />
       <input type="number" placeholder="price" onChange={handleChange} name="price" />
       <input type="text" placeholder="cover" onChange={handleChange} name="cover" />
 
-      <button onClick={handleClick}>Add</button>
+      <button className='formButton' onClick={handleClick}>Add</button>
     </div>
 
   )
 }
 
-export default Add
+export default Add;
