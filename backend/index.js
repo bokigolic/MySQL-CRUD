@@ -1,5 +1,5 @@
 import express from 'express';
-import mysql from 'mysql'
+import mysql from 'mysql2'
 
 const app = express()
 
@@ -11,8 +11,21 @@ const db = mysql.createConnection({
 })
 
 app.get("/", (req, res) => {
-  res.json("Hello from backend")
-})
+  res.json("hello form backend");
+});
+
+app.get("/books", (req, res) => {
+  const q = "SELECT * FROM books";
+  db.query(q, (err, data) => {
+    if (err) {
+      console.log(err);
+      return res.json(err);
+    }
+    return res.json(data);
+  });
+});
+
+
 
 app.listen(8800, () => {
   console.log("Connected to backend ")
